@@ -43,11 +43,23 @@ const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const { data } = await axios.post("https://taskbuddybackend-1.onrender.com/api/auth/login", form);
+  //     localStorage.setItem("token", data.token);
+  //     toast.success("Login Successful!", { position: "top-center", autoClose: 2000 });
+  //     setTimeout(() => navigate("/"), 2500);
+  //   } catch (error) {
+  //     toast.error("Invalid Credentials", { position: "top-center" });
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post("https://taskbuddybackend-1.onrender.com/api/auth/login", form);
       localStorage.setItem("token", data.token);
+      setIsAuthenticated(true);  // Update auth state
       toast.success("Login Successful!", { position: "top-center", autoClose: 2000 });
       setTimeout(() => navigate("/"), 2500);
     } catch (error) {
