@@ -636,7 +636,7 @@ const Dashboard = () => {
         toast.error("No authentication token found!", { position: "top-right" });
         return;
       }
-      const { data } = await axios.get("http://localhost:5000/api/tasks", {
+      const { data } = await axios.get("https://taskbuddybackend-1.onrender.com/api/tasks", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(data);
@@ -658,7 +658,7 @@ const Dashboard = () => {
         toast.error("No authentication token found!", { position: "top-right" });
         return;
       }
-      await axios.post("http://localhost:5000/api/tasks", newTask, {
+      await axios.post("https://taskbuddybackend-1.onrender.com/api/tasks", newTask, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setNewTask({ title: "", description: "" });
@@ -677,7 +677,7 @@ const Dashboard = () => {
         toast.error("No authentication token found!", { position: "top-right" });
         return;
       }
-      await axios.put(`http://localhost:5000/api/tasks/${id}`, updatedTask, {
+      await axios.put(`https://taskbuddybackend-1.onrender.com/api/tasks/${id}`, updatedTask, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setEditingTask(null);
@@ -696,7 +696,7 @@ const Dashboard = () => {
         toast.error("No authentication token found!", { position: "top-right" });
         return;
       }
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`, {
+      await axios.delete(`https://taskbuddybackend-1.onrender.com/api/tasks/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success("Task deleted successfully!", { position: "top-right" });

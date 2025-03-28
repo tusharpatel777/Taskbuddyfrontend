@@ -45,7 +45,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/auth/register", form);
+      await axios.post("https://taskbuddybackend-1.onrender.com/api/auth/register", form);
       toast.success("Registration Successful! Redirecting...", { position: "top-center", autoClose: 2000 });
       setTimeout(() => navigate("/login"), 2500);
     } catch (error) {

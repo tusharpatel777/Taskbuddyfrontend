@@ -46,7 +46,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:5000/api/auth/login", form);
+      const { data } = await axios.post("https://taskbuddybackend-1.onrender.com/api/auth/login", form);
       localStorage.setItem("token", data.token);
       toast.success("Login Successful!", { position: "top-center", autoClose: 2000 });
       setTimeout(() => navigate("/"), 2500);
